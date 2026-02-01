@@ -4,69 +4,381 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sweet Natalia</title>
-  <meta name="description" content="Welcome to Sweet Natalia." />
+  <meta name="description" content="Sweet Natalia — handcrafted desserts for celebrations and everyday joy." />
   <style>
     :root{
-      --bg:#fff6fb;
+      --bg-1:#fff6fb;
+      --bg-2:#f8dfe9;
+      --bg-3:#f3cbdc;
+      --card:#ffffff;
       --ink:#3b2b33;
       --muted:#7a6670;
-      --rose:#b14a78;
-      --line:rgba(59, 43, 51, .12);
-      --shadow:0 14px 40px rgba(80, 45, 62, .15);
-      --radius:22px;
+      --rose:#c4698a;
+      --rose-dark:#b14a78;
+      --gold:#d6b27a;
+      --gold-light:#f3e2c8;
+      --line:rgba(59, 43, 51, .10);
+      --shadow:0 18px 50px rgba(80, 45, 62, .16);
+      --shadow-soft:0 10px 26px rgba(80, 45, 62, .12);
+      --radius:24px;
+
+      --space-1:6px;
+      --space-2:10px;
+      --space-3:14px;
+      --space-4:18px;
+      --space-5:24px;
+      --space-6:32px;
+      --space-7:40px;
     }
+
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
       color:var(--ink);
       background:
-        radial-gradient(900px 520px at 15% 10%, #f7e7f0, transparent 60%),
-        linear-gradient(180deg, var(--bg), #ffffff);
+        radial-gradient(900px 520px at 12% 8%, #f7e7f0, transparent 60%),
+        radial-gradient(900px 520px at 90% 12%, #f9dbea, transparent 60%),
+        linear-gradient(180deg, var(--bg-1), #ffffff);
       min-height:100vh;
+    }
+
+    .sparkle{
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.5) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(255,255,255,.4) 0 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,.35) 0 1px, transparent 2px),
+        radial-gradient(circle at 85% 65%, rgba(255,255,255,.45) 0 1px, transparent 2px);
+      background-size:170px 170px;
+      opacity:.6;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      margin:0 auto;
+      padding:var(--space-7) var(--space-4) var(--space-7);
+      position:relative;
+      z-index:1;
+    }
+
+    .hero{
+      background:linear-gradient(180deg, #fff, #fff6fb);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:var(--space-6);
+      display:grid;
+      gap:var(--space-5);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border-radius:22px;
+      border:1px solid rgba(214, 178, 122, .45);
+      pointer-events:none;
+    }
+
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap:var(--space-3);
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:20px;
+      background: linear-gradient(135deg, #f4b7cf, #d48db0);
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:32px 16px;
+      box-shadow: 0 12px 26px rgba(180, 90, 130, .25);
+      border:1px solid rgba(255,255,255,.7);
+      flex:0 0 auto;
     }
-    .card{
-      width:100%;
-      max-width:520px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:28px;
-      text-align:center;
+
+    .logo svg{
+      width:34px;
+      height:34px;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
     }
+
     h1{
-      margin:0 0 8px;
-      font-size:30px;
-      color:var(--rose);
+      margin:0;
+      font-size:36px;
+      color:var(--rose-dark);
       letter-spacing:.01em;
+      line-height:1.05;
     }
-    p{
-      margin:0 0 18px;
+
+    .tagline{
+      margin:var(--space-1) 0 0;
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
     }
-    a{
-      display:inline-block;
-      padding:10px 16px;
+
+    .hero-copy{
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      max-width:560px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:var(--space-3);
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
       border-radius:999px;
       text-decoration:none;
-      color:#fff;
-      background:linear-gradient(135deg, #c4698a, #b14a78);
       font-weight:700;
-      box-shadow:0 8px 20px rgba(180, 90, 130, .25);
+      font-size:14px;
+      letter-spacing:.02em;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color:#fff;
+      background:linear-gradient(135deg, var(--rose), var(--rose-dark));
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn.secondary{
+      color:var(--rose-dark);
+      background:#fff;
+      border:1px solid rgba(193, 110, 145, .35);
+      box-shadow:none;
+    }
+
+    .grid{
+      margin-top:var(--space-6);
+      display:grid;
+      gap:var(--space-4);
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      padding:var(--space-5);
+    }
+
+    .card h2{
+      margin:0 0 var(--space-2);
+      font-size:20px;
+      color:var(--rose-dark);
+    }
+
+    .badge-row{
+      display:flex;
+      gap:var(--space-2);
+      flex-wrap:wrap;
+      margin-top:var(--space-2);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .badge{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(214, 178, 122, .5);
+      background:rgba(243, 226, 200, .35);
+    }
+
+    .menu{
+      display:grid;
+      gap:var(--space-2);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+
+    .menu-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--space-2);
+      border-bottom:1px dashed rgba(59, 43, 51, .12);
+      padding:10px 0;
+      font-size:14px;
+    }
+
+    .menu-item:last-child{
+      border-bottom:0;
+    }
+
+    .menu-item span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .steps{
+      display:grid;
+      gap:var(--space-3);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .step-num{
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--gold-light), var(--gold));
+      color:#6b4d2d;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      flex:0 0 auto;
+    }
+
+    .footer{
+      margin-top:var(--space-6);
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+
+    @media (min-width: 820px){
+      .hero{
+        grid-template-columns: 1.2fr .8fr;
+        align-items:center;
+      }
+      .grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card.span-2{
+        grid-column: span 2;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <h1>Sweet Natalia</h1>
-    <p>Welcome. For payments, please use the link below.</p>
-    <a href="/go">Go to Payment Page</a>
-  </main>
+  <div class="sparkle" aria-hidden="true"></div>
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="brand-row">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8.5 8.2c0-1.9 1.55-3.45 3.45-3.45s3.45 1.55 3.45 3.45c0 1.2-.62 2.26-1.56 2.87l.65 3.56H9.4l.66-3.56A3.44 3.44 0 0 1 8.5 8.2Z" stroke="white" stroke-width="1.6"/>
+              <path d="M12 14.4v5.6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M10.4 18.2h3.2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="10.2" cy="7.2" r=".6" fill="white"/>
+              <circle cx="12" cy="6.6" r=".7" fill="white"/>
+              <circle cx="13.8" cy="7.5" r=".6" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Sweet Natalia</h1>
+            <div class="tagline">Be sweet to yourself</div>
+          </div>
+        </div>
+        <p class="hero-copy">
+          Handcrafted dessert moments for celebrations, parties, and just-because days. Soft pinks,
+          golden sparkle, and a little magic in every bite.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="/go">Make a Payment</a>
+          <a class="btn secondary" href="/go">Open Payment Hub</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Signature Sweet List</h2>
+        <div class="menu">
+          <div class="menu-item">Waffle on a Stick <span>drizzled + dipped</span></div>
+          <div class="menu-item">Chocolate Covered Strawberries <span>classic + luxe</span></div>
+          <div class="menu-item">Cake Pops <span>party-friendly</span></div>
+          <div class="menu-item">Dessert Cups <span>layered bliss</span></div>
+        </div>
+        <div class="badge-row">
+          <div class="badge">Custom colors</div>
+          <div class="badge">Event-ready</div>
+          <div class="badge">Small-batch</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>Pick your treats and quantity.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>Choose date, color theme, and details.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>Use the payment hub to confirm your order.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Good-to-Know</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">★</div>
+            <div>Lead time is recommended for large events.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">★</div>
+            <div>Flavor and decor options available upon request.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">★</div>
+            <div>Pickup or local delivery details can be shared after payment.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span-2">
+        <h2>Ready to make it official?</h2>
+        <p class="hero-copy">
+          Use the payment hub to send your deposit or full payment. It supports Venmo, Cash App, Zelle,
+          and Instagram DM.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="/go">Go to Payment Hub</a>
+          <a class="btn secondary" href="/go">Send Payment</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Sweet Natalia • Handcrafted desserts for sweet celebrations
+    </footer>
+  </div>
 </body>
 </html>
