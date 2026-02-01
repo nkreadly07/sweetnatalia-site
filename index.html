@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Natalia</title>
+  <meta name="description" content="Welcome to Sweet Natalia." />
+  <style>
+    :root{
+      --bg:#fff6fb;
+      --ink:#3b2b33;
+      --muted:#7a6670;
+      --rose:#b14a78;
+      --line:rgba(59, 43, 51, .12);
+      --shadow:0 14px 40px rgba(80, 45, 62, .15);
+      --radius:22px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 15% 10%, #f7e7f0, transparent 60%),
+        linear-gradient(180deg, var(--bg), #ffffff);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 16px;
+    }
+    .card{
+      width:100%;
+      max-width:520px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      text-align:center;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:30px;
+      color:var(--rose);
+      letter-spacing:.01em;
+    }
+    p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    a{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:999px;
+      text-decoration:none;
+      color:#fff;
+      background:linear-gradient(135deg, #c4698a, #b14a78);
+      font-weight:700;
+      box-shadow:0 8px 20px rgba(180, 90, 130, .25);
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Sweet Natalia</h1>
+    <p>Welcome. For payments, please use the link below.</p>
+    <a href="/go">Go to Payment Page</a>
+  </main>
+</body>
+</html>
