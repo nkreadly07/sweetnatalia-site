@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Natalia | Pay</title>
+  <meta name="description" content="Tap a payment option for Sweet Natalia." />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #fff7fb;
+      color: #222;
+    }
+    .wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 28px 18px 40px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+    h1 { margin: 6px 0 4px; font-size: 30px; }
+    p { margin: 6px 0 16px; opacity: .85; }
+    .btn {
+      display: block;
+      margin: 12px 0;
+      padding: 16px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+    .venmo { background: #3d95ce; }
+    .cashapp { background: #00d632; }
+    .zelle { background: #6d1ed4; }
+    .ig { background: #111; }
+    .small {
+      font-size: 13px;
+      opacity: .75;
+      margin-top: 14px;
+      line-height: 1.35;
+    }
+    .copy {
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.12);
+      background: rgba(255,255,255,.75);
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Sweet Natalia í½°</h1>
+      <p>Tap a payment option</p>
+
+      <a class="btn venmo" href="https://venmo.com/u/REPLACE_VENMO">Pay with Venmo</a>
+      <a class="btn cashapp" href="https://cash.app/$REPLACE_CASHAPP">Pay with Cash App</a>
+      <a class="btn zelle" href="mailto:REPLACE_ZELLE_EMAIL">Pay with Zelle</a>
+      <a class="btn ig" href="https://instagram.com/REPLACE_INSTAGRAM">Instagram</a>
+
+      <div class="copy">
+        <span id="zelleText">Zelle: REPLACE_ZELLE_EMAIL</span>
+        <button id="copyBtn" type="button">Copy</button>
+      </div>
+
+      <div class="small">
+        Tip: Please include your name or "cake pops" in the payment note.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("copyBtn");
+    const zelle = "REPLACE_ZELLE_EMAIL";
+    btn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(zelle);
+        btn.textContent = "Copied!";
+        setTimeout(() => btn.textContent = "Copy", 1200);
+      } catch {
+        btn.textContent = "Copy failed";
+        setTimeout(() => btn.textContent = "Copy", 1200);
+      }
+    });
+  </script>
+</body>
+</html>
+
