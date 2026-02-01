@@ -266,24 +266,6 @@
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
 
-    .contact-row{
-      margin-top:var(--space-6);
-      display:grid;
-      gap:var(--space-4);
-    }
-
-    .contact-list{
-      display:grid;
-      gap:10px;
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .contact-list span{
-      color:var(--ink);
-      font-weight:600;
-    }
 
     @media (min-width: 820px){
       .hero{
@@ -294,12 +276,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .card.span-2{
-        grid-column: span 2;
-      }
-      .contact-row{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .contact-row .card.span-2{
         grid-column: span 2;
       }
     }
@@ -332,7 +308,8 @@
         </p>
         <div class="cta-row">
           <a class="btn" href="/go">Make a Payment</a>
-          <a class="btn secondary" href="/go">Open Payment Hub</a>
+          <a class="btn secondary" href="/orders">Custom Orders</a>
+          <a class="btn secondary" href="/contact">Contact</a>
         </div>
       </div>
       <div class="card">
@@ -397,34 +374,6 @@
         <div class="cta-row">
           <a class="btn" href="/go">Go to Payment Hub</a>
           <a class="btn secondary" href="/go">Send Payment</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-row">
-      <div class="card">
-        <h2>Custom Orders</h2>
-        <p class="hero-copy">
-          Planning something special? Share your date, guest count, theme colors, and favorite flavors.
-          We will confirm availability and send a custom quote.
-        </p>
-        <div class="cta-row">
-          <a class="btn" href="/go">Start an Order</a>
-          <a class="btn secondary" href="#contact">Contact Us</a>
-        </div>
-      </div>
-
-      <div class="card" id="contact">
-        <h2>Contact</h2>
-        <div class="contact-list">
-          <div><span>Email:</span> your@email.com</div>
-          <div><span>Instagram:</span> @yourhandle</div>
-          <div><span>Phone:</span> (000) 000-0000</div>
-        </div>
-        <div class="badge-row">
-          <div class="badge">Custom orders</div>
-          <div class="badge">Event catering</div>
-          <div class="badge">Pickups</div>
         </div>
       </div>
     </section>

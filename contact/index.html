@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Natalia | Contact</title>
+  <meta name="description" content="Contact Sweet Natalia for orders and questions." />
+  <style>
+    :root{
+      --bg-1:#fff6fb;
+      --bg-2:#f8dfe9;
+      --card:#ffffff;
+      --ink:#3b2b33;
+      --muted:#7a6670;
+      --rose:#c4698a;
+      --rose-dark:#b14a78;
+      --gold:#d6b27a;
+      --gold-light:#f3e2c8;
+      --line:rgba(59, 43, 51, .10);
+      --shadow:0 18px 50px rgba(80, 45, 62, .16);
+      --shadow-soft:0 10px 26px rgba(80, 45, 62, .12);
+      --radius:24px;
+
+      --space-1:6px;
+      --space-2:10px;
+      --space-3:14px;
+      --space-4:18px;
+      --space-5:24px;
+      --space-6:32px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 520px at 15% 10%, #f7e7f0, transparent 60%),
+        linear-gradient(180deg, var(--bg-1), #ffffff);
+      min-height:100vh;
+    }
+    .wrap{
+      width:100%;
+      max-width:900px;
+      margin:0 auto;
+      padding:var(--space-6) var(--space-4) var(--space-6);
+    }
+    .hero{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:var(--space-6);
+    }
+    h1{
+      margin:0 0 var(--space-2);
+      font-size:34px;
+      color:var(--rose-dark);
+      letter-spacing:.01em;
+    }
+    .lead{
+      margin:0 0 var(--space-4);
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.6;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    .grid{
+      display:grid;
+      gap:var(--space-4);
+      margin-top:var(--space-5);
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      padding:var(--space-5);
+    }
+    .card h2{
+      margin:0 0 var(--space-2);
+      font-size:20px;
+      color:var(--rose-dark);
+    }
+    .contact-list{
+      display:grid;
+      gap:10px;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .contact-list span{
+      color:var(--ink);
+      font-weight:600;
+    }
+    .cta-row{
+      display:flex;
+      gap:var(--space-3);
+      flex-wrap:wrap;
+      margin-top:var(--space-4);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.02em;
+      color:#fff;
+      background:linear-gradient(135deg, var(--rose), var(--rose-dark));
+      box-shadow:var(--shadow-soft);
+    }
+    .btn.secondary{
+      color:var(--rose-dark);
+      background:#fff;
+      border:1px solid rgba(193, 110, 145, .35);
+      box-shadow:none;
+    }
+    .footer{
+      margin-top:var(--space-6);
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    }
+    @media (min-width: 820px){
+      .grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card.span-2{
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Contact Sweet Natalia</h1>
+      <p class="lead">
+        Have a question, need a quote, or want to place an order? Use any of the options below and
+        we will get back to you soon.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="/orders">Custom Orders</a>
+        <a class="btn secondary" href="/go">Payment Hub</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Contact Details</h2>
+        <div class="contact-list">
+          <div><span>Email:</span> your@email.com</div>
+          <div><span>Instagram:</span> @yourhandle</div>
+          <div><span>Phone:</span> (000) 000-0000</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Order Notes</h2>
+        <div class="contact-list">
+          <div><span>Lead time:</span> 3-7 days recommended for events</div>
+          <div><span>Pickup:</span> details shared after confirmation</div>
+          <div><span>Delivery:</span> local options available</div>
+        </div>
+      </div>
+
+      <div class="card span-2">
+        <h2>Already have a quote?</h2>
+        <p class="lead">
+          Use the payment hub to send your deposit or full payment, and include your order name in
+          the payment note.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="/go">Go to Payment Hub</a>
+          <a class="btn secondary" href="/">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Sweet Natalia - Be sweet to yourself
+    </footer>
+  </div>
+</body>
+</html>
