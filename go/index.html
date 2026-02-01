@@ -6,114 +6,209 @@
   <title>Sweet Natalia | Pay</title>
   <meta name="description" content="Pay Sweet Natalia via Venmo, Cash App, or Zelle." />
 
+  <script>
+    // ====== EDIT THESE CONSTANTS ======
+    const VENMO_USER = "REPLACE_VENMO_USER";
+    const CASHAPP_USER = "REPLACE_CASHAPP_USER";
+    const ZELLE_EMAIL = "REPLACE_ZELLE_EMAIL";
+    const IG_USER = "REPLACE_IG_USER";
+    const BRAND_NAME = "Sweet Natalia";
+    const TAGLINE = "Be sweet to yourself.";
+    // ====== END CONSTANTS ======
+  </script>
+
   <style>
     :root{
-      --bg1:#fff3f8;
-      --bg2:#f7f4ff;
+      --bg-1:#f8dfe9;
+      --bg-2:#f3cbdc;
+      --bg-3:#fff6fb;
       --card:#ffffff;
-      --text:#1f2330;
-      --muted:#6b7280;
-      --ring:rgba(0,0,0,.08);
-      --shadow:0 14px 40px rgba(15, 23, 42, .12);
-      --radius:22px;
+      --ink:#3b2b33;
+      --muted:#7a6670;
+      --rose:#c4698a;
+      --rose-dark:#b14a78;
+      --gold:#d6b27a;
+      --gold-light:#f3e2c8;
+      --line:rgba(59, 43, 51, .10);
+      --ring:rgba(255, 255, 255, .65);
+      --shadow-card:0 20px 60px rgba(80, 45, 62, .18);
+      --shadow-soft:0 10px 26px rgba(80, 45, 62, .14);
+      --radius-card:26px;
+      --radius-btn:18px;
 
       --venmo:#3d95ce;
       --cash:#00d632;
       --zelle:#6d1ed4;
       --ig:#0b0b0f;
+
+      --space-1:6px;
+      --space-2:10px;
+      --space-3:14px;
+      --space-4:18px;
+      --space-5:22px;
+      --space-6:28px;
+      --space-7:36px;
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
+      font-family: "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+      color:var(--ink);
       background:
-        radial-gradient(1200px 800px at 15% 10%, var(--bg2), transparent 60%),
-        radial-gradient(1200px 800px at 85% 20%, var(--bg1), transparent 60%),
-        linear-gradient(180deg, #fff, #fff);
+        radial-gradient(900px 500px at 10% 5%, #f7e7f0, transparent 65%),
+        radial-gradient(900px 520px at 90% 10%, #f9dbea, transparent 60%),
+        linear-gradient(180deg, var(--bg-3), #ffffff);
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:28px 16px 40px;
+      padding:var(--space-7) var(--space-4) var(--space-7);
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    body::before,
+    body::after{
+      content:"";
+      position:absolute;
+      width:320px;
+      height:320px;
+      border-radius:999px;
+      filter:blur(24px);
+      opacity:.45;
+      z-index:0;
+    }
+    body::before{
+      background:radial-gradient(circle at 30% 30%, #f7c2d5, transparent 60%);
+      top:-80px;
+      left:-90px;
+    }
+    body::after{
+      background:radial-gradient(circle at 70% 40%, #f8dfeb, transparent 60%);
+      bottom:-90px;
+      right:-80px;
+    }
+
+    .sparkle{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.55) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(255,255,255,.45) 0 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,.35) 0 1px, transparent 2px),
+        radial-gradient(circle at 85% 65%, rgba(255,255,255,.5) 0 1px, transparent 2px);
+      background-size:160px 160px;
+      opacity:.5;
+      pointer-events:none;
+      z-index:0;
     }
 
     .wrap{
       width:100%;
       max-width:560px;
+      position:relative;
+      z-index:1;
     }
 
     .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid var(--ring);
-      padding:22px;
+      background:linear-gradient(180deg, #fff, #fff6fb);
+      border-radius:var(--radius-card);
+      box-shadow:var(--shadow-card);
+      border:1px solid var(--line);
+      padding:var(--space-6);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:14px;
+      border-radius:22px;
+      border:1px solid rgba(214, 178, 122, .45);
+      pointer-events:none;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:var(--radius-card);
+      border:1px solid rgba(255,255,255,.7);
+      pointer-events:none;
     }
 
     .header{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:var(--space-3);
       justify-content:center;
-      margin-bottom:14px;
+      margin-bottom:var(--space-3);
+      flex-wrap:wrap;
+      text-align:center;
     }
 
     .logo{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      background: linear-gradient(135deg, #ff7ab6, #8b5cf6);
+      width:62px;
+      height:62px;
+      border-radius:20px;
+      background: linear-gradient(135deg, #f4b7cf, #d48db0);
       display:flex;
       align-items:center;
       justify-content:center;
-      box-shadow: 0 10px 24px rgba(139, 92, 246, .22);
-      border:1px solid rgba(255,255,255,.4);
+      box-shadow: 0 12px 26px rgba(180, 90, 130, .25);
+      border:1px solid var(--ring);
       flex:0 0 auto;
     }
 
     .logo svg{
-      width:28px;
-      height:28px;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,.18));
+      width:34px;
+      height:34px;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
     }
 
     h1{
       margin:0;
-      font-size:28px;
-      line-height:1.1;
-      letter-spacing:-.02em;
-      text-align:center;
+      font-size:30px;
+      line-height:1.05;
+      letter-spacing:.01em;
+      color:var(--rose-dark);
     }
 
     .tagline{
-      margin:6px 0 18px;
-      text-align:center;
+      margin:var(--space-1) 0 0;
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
     }
 
     .grid{
       display:grid;
       grid-template-columns: 1fr;
-      gap:12px;
-      margin-top:10px;
+      gap:var(--space-3);
+      margin-top:var(--space-4);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
 
     .btn{
+      --btn-bg: linear-gradient(135deg, #f0f0f0, #e5e5e5);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:var(--space-3);
       width:100%;
       padding:16px 16px;
-      border-radius:16px;
+      border-radius:var(--radius-btn);
       text-decoration:none;
-      font-weight:750;
+      font-weight:700;
       font-size:16px;
-      color:#fff;
-      border:1px solid rgba(255,255,255,.18);
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,.22);
+      background:var(--btn-bg);
+      box-shadow:var(--shadow-soft);
       transition: transform .08s ease, filter .08s ease;
       user-select:none;
     }
@@ -122,18 +217,21 @@
     .btn .left{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:var(--space-3);
     }
 
-    .pill{
-      width:38px;
-      height:38px;
-      border-radius:13px;
-      background: rgba(255,255,255,.18);
-      display:flex;
+    .chip{
+      display:inline-flex;
       align-items:center;
       justify-content:center;
-      border:1px solid rgba(255,255,255,.20);
+      height:34px;
+      padding:0 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.35);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.06em;
     }
 
     .arrow{
@@ -142,33 +240,34 @@
       font-size:18px;
     }
 
-    .venmo{ background: linear-gradient(135deg, #2f80ed, var(--venmo)); }
-    .cash { background: linear-gradient(135deg, #0aa84a, var(--cash)); }
-    .zelle{ background: linear-gradient(135deg, #4c1d95, var(--zelle)); }
-    .ig   { background: linear-gradient(135deg, #111827, var(--ig)); }
+    .venmo{ --btn-bg: linear-gradient(135deg, #2f80ed, var(--venmo)); }
+    .cash { --btn-bg: linear-gradient(135deg, #0aa84a, var(--cash)); }
+    .zelle{ --btn-bg: linear-gradient(135deg, #4c1d95, var(--zelle)); }
+    .ig   { --btn-bg: linear-gradient(135deg, #111827, var(--ig)); }
 
     .section{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid rgba(0,0,0,.06);
+      margin-top:var(--space-4);
+      padding-top:var(--space-4);
+      border-top:1px solid var(--line);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
 
     .copyRow{
       display:flex;
-      gap:10px;
+      gap:var(--space-2);
       align-items:center;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top:8px;
+      margin-top:var(--space-2);
     }
 
-    .chip{
-      background: rgba(2, 6, 23, .04);
-      border:1px solid rgba(2, 6, 23, .06);
+    .zelleChip{
+      background: rgba(59, 43, 51, .05);
+      border:1px solid rgba(59, 43, 51, .12);
       border-radius:999px;
       padding:10px 12px;
       font-size:13px;
-      color:rgba(2, 6, 23, .75);
+      color:rgba(59, 43, 51, .8);
       max-width:100%;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -181,13 +280,14 @@
       padding:10px 14px;
       font-weight:800;
       cursor:pointer;
-      background:#111827;
+      background:linear-gradient(135deg, var(--rose), var(--rose-dark));
       color:#fff;
+      box-shadow:var(--shadow-soft);
     }
 
     .note{
       text-align:center;
-      margin:12px 0 0;
+      margin:var(--space-3) 0 0;
       color:var(--muted);
       font-size:13px;
       line-height:1.35;
@@ -195,78 +295,81 @@
 
     .footer{
       text-align:center;
-      margin-top:14px;
-      color:rgba(107,114,128,.9);
+      margin-top:var(--space-4);
+      color:rgba(122, 102, 112, .9);
       font-size:12px;
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
 
     .footer a{
       color:inherit;
       text-decoration:none;
-      border-bottom:1px dotted rgba(107,114,128,.6);
+      border-bottom:1px dotted rgba(214, 178, 122, .8);
     }
   </style>
 </head>
 
 <body>
+  <div class="sparkle" aria-hidden="true"></div>
   <div class="wrap">
     <div class="card">
       <div class="header">
         <div class="logo" aria-hidden="true">
-          <!-- simple cupcake icon, avoids emoji encoding issues -->
           <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7 10c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            <path d="M6 10h12l-1.4 9.2a2 2 0 0 1-2 1.7H9.4a2 2 0 0 1-2-1.7L6 10Z" fill="rgba(255,255,255,.28)" stroke="white" stroke-width="1.5" />
-            <path d="M9 13h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M9.5 16h5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M8.5 8.2c0-1.9 1.55-3.45 3.45-3.45s3.45 1.55 3.45 3.45c0 1.2-.62 2.26-1.56 2.87l.65 3.56H9.4l.66-3.56A3.44 3.44 0 0 1 8.5 8.2Z" stroke="white" stroke-width="1.6"/>
+            <path d="M12 14.4v5.6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M10.4 18.2h3.2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="10.2" cy="7.2" r=".6" fill="white"/>
+            <circle cx="12" cy="6.6" r=".7" fill="white"/>
+            <circle cx="13.8" cy="7.5" r=".6" fill="white"/>
           </svg>
         </div>
         <div>
-          <h1>Sweet Natalia</h1>
-          <div class="tagline">Tap a payment option</div>
+          <h1 data-brand>Sweet Natalia</h1>
+          <div class="tagline" data-tagline>Be sweet to yourself.</div>
         </div>
       </div>
 
       <div class="grid">
-        <a class="btn venmo" href="https://venmo.com/u/REPLACE_VENMO" rel="noopener">
+        <a class="btn venmo" data-link="venmo" href="#" rel="noopener">
           <span class="left">
-            <span class="pill">V</span>
+            <span class="chip">VENMO</span>
             <span>Pay with Venmo</span>
           </span>
-          <span class="arrow">›</span>
+          <span class="arrow">&gt;</span>
         </a>
 
-        <a class="btn cash" href="https://cash.app/$REPLACE_CASHAPP" rel="noopener">
+        <a class="btn cash" data-link="cash" href="#" rel="noopener">
           <span class="left">
-            <span class="pill">$</span>
+            <span class="chip">CASH APP</span>
             <span>Pay with Cash App</span>
           </span>
-          <span class="arrow">›</span>
+          <span class="arrow">&gt;</span>
         </a>
 
-        <a class="btn zelle" href="mailto:REPLACE_ZELLE_EMAIL" rel="noopener">
+        <a class="btn zelle" data-link="zelle" href="#" rel="noopener">
           <span class="left">
-            <span class="pill">Z</span>
+            <span class="chip">ZELLE</span>
             <span>Pay with Zelle</span>
           </span>
-          <span class="arrow">›</span>
+          <span class="arrow">&gt;</span>
         </a>
 
-        <a class="btn ig" href="https://instagram.com/REPLACE_INSTAGRAM" rel="noopener">
+        <a class="btn ig" data-link="ig" href="#" rel="noopener">
           <span class="left">
-            <span class="pill">IG</span>
+            <span class="chip">INSTAGRAM</span>
             <span>Instagram</span>
           </span>
-          <span class="arrow">›</span>
+          <span class="arrow">&gt;</span>
         </a>
       </div>
 
       <div class="section">
         <div class="copyRow">
-          <span class="chip" id="zelleChip">Zelle: REPLACE_ZELLE_EMAIL</span>
+          <span class="zelleChip" id="zelleChip">Zelle: REPLACE_ZELLE_EMAIL</span>
           <button class="copyBtn" id="copyBtn" type="button">Copy</button>
         </div>
-        <p class="note">Tip: put your name or “cake pops” in the payment note.</p>
+        <p class="note">Tip: put your name or "cake pops" in the payment note.</p>
       </div>
 
       <div class="footer">
@@ -276,12 +379,41 @@
   </div>
 
   <script>
-    const btn = document.getElementById("copyBtn");
-    const zelle = "REPLACE_ZELLE_EMAIL";
+    const links = {
+      venmo: `https://venmo.com/u/${VENMO_USER}`,
+      cash: `https://cash.app/$${CASHAPP_USER}`,
+      zelle: `mailto:${ZELLE_EMAIL}`,
+      ig: `https://instagram.com/${IG_USER}`
+    };
 
+    document.title = `${BRAND_NAME} | Pay`;
+    const metaDesc = document.querySelector("meta[name='description']");
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        "content",
+        `Pay ${BRAND_NAME} via Venmo, Cash App, or Zelle.`
+      );
+    }
+
+    const brandEl = document.querySelector("[data-brand]");
+    const taglineEl = document.querySelector("[data-tagline]");
+    if (brandEl) brandEl.textContent = BRAND_NAME;
+    if (taglineEl) taglineEl.textContent = TAGLINE;
+
+    const zelleChip = document.getElementById("zelleChip");
+    if (zelleChip) zelleChip.textContent = `Zelle: ${ZELLE_EMAIL}`;
+
+    document.querySelectorAll("[data-link]").forEach((el) => {
+      const key = el.getAttribute("data-link");
+      if (key && links[key]) {
+        el.setAttribute("href", links[key]);
+      }
+    });
+
+    const btn = document.getElementById("copyBtn");
     btn?.addEventListener("click", async () => {
       try {
-        await navigator.clipboard.writeText(zelle);
+        await navigator.clipboard.writeText(ZELLE_EMAIL);
         btn.textContent = "Copied!";
         setTimeout(() => btn.textContent = "Copy", 1200);
       } catch {
