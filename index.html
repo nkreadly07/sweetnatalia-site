@@ -159,6 +159,18 @@
       color:#fff;
       background:linear-gradient(135deg, var(--rose), var(--rose-dark));
       box-shadow:var(--shadow-soft);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible{
+      transform:translateY(-1px);
+      box-shadow:0 14px 30px rgba(80, 45, 62, .18);
+    }
+
+    .btn:focus-visible{
+      outline:2px solid rgba(196, 105, 138, .4);
+      outline-offset:3px;
     }
 
     .btn.secondary{
@@ -180,6 +192,12 @@
       border:1px solid var(--line);
       box-shadow:var(--shadow-soft);
       padding:var(--space-5);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(80, 45, 62, .16);
     }
 
     .card h2{
@@ -266,6 +284,53 @@
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
 
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:var(--space-2);
+      margin-top:var(--space-3);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .pill{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(196, 105, 138, .25);
+      background:rgba(248, 223, 233, .35);
+    }
+
+    .feature-list{
+      display:grid;
+      gap:var(--space-3);
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      font-size:14px;
+      color:var(--muted);
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .feature-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+
+    .feature-icon{
+      width:28px;
+      height:28px;
+      border-radius:10px;
+      background:rgba(214, 178, 122, .25);
+      color:#6b4d2d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      flex:0 0 auto;
+    }
+
 
     @media (min-width: 820px){
       .hero{
@@ -306,6 +371,11 @@
           Handcrafted dessert moments for celebrations, parties, and just-because days. Soft pinks,
           golden sparkle, and a little magic in every bite.
         </p>
+        <div class="pill-row">
+          <div class="pill">Pickup + local delivery</div>
+          <div class="pill">Custom color palettes</div>
+          <div class="pill">Small-batch baking</div>
+        </div>
         <div class="cta-row">
           <a class="btn" href="/go">Make a Payment</a>
           <a class="btn secondary" href="/orders">Custom Orders</a>
@@ -375,6 +445,62 @@
           <a class="btn" href="/go">Go to Payment Hub</a>
           <a class="btn secondary" href="/go">Send Payment</a>
         </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Highlights">
+      <div class="card">
+        <h2>Occasions We Love</h2>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon">🎉</div>
+            <div>Birthdays, showers, and milestone moments.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">💍</div>
+            <div>Engagements, weddings, and rehearsal treats.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🧁</div>
+            <div>Corporate gifting and client thank-you boxes.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Signature Add-Ons</h2>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon">✨</div>
+            <div>Gold leaf, edible pearls, and sparkle dust.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <div>Hand-painted monograms and message tags.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🍓</div>
+            <div>Seasonal fruit, floral accents, and luxe toppings.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Planning Snapshot</h2>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <div class="feature-icon">📆</div>
+            <div>2-3 week lead time recommended for large events.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">💬</div>
+            <div>Share inspo photos in your order form or DM.</div>
+          </li>
+          <li class="feature-item">
+            <div class="feature-icon">🚗</div>
+            <div>Delivery timing coordinated after payment is received.</div>
+          </li>
+        </ul>
       </div>
     </section>
 
