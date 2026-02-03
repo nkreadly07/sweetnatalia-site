@@ -52,6 +52,31 @@
       box-shadow:var(--shadow);
       padding:var(--space-6);
     }
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap:var(--space-3);
+      flex-wrap:wrap;
+      margin-bottom:var(--space-3);
+    }
+    .logo{
+      width:64px;
+      height:64px;
+      border-radius:20px;
+      background: linear-gradient(135deg, #f4b7cf, #d48db0);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 12px 26px rgba(180, 90, 130, .25);
+      border:1px solid rgba(255,255,255,.7);
+      flex:0 0 auto;
+    }
+    .logo img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
+    }
     h1{
       margin:0 0 var(--space-2);
       font-size:34px;
@@ -152,7 +177,12 @@
 <body>
   <div class="wrap">
     <section class="hero">
-      <h1>Custom Orders</h1>
+      <div class="brand-row">
+        <div class="logo" aria-hidden="true">
+          <img src="../images/sweet-logo.jpg" alt="" loading="lazy" />
+        </div>
+        <h1>Custom Orders</h1>
+      </div>
       <p class="lead">
         Share your vision and we will craft a dessert spread that fits your event. This page is for
         custom requests, quotes, and the details we need to get started.
