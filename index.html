@@ -144,6 +144,59 @@
       max-width:560px;
     }
 
+    .ig-slideshow{
+      margin:var(--space-4) 0 var(--space-4);
+      padding:var(--space-4);
+      background:linear-gradient(180deg, #fff, #fff6fb);
+      border:1px solid rgba(193, 110, 145, .22);
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .ig-slides{
+      position:relative;
+      min-height:520px;
+    }
+
+    .ig-slide{
+      opacity:0;
+      transition: opacity .35s ease;
+      pointer-events:none;
+      position:absolute;
+      inset:0;
+    }
+
+    .ig-slide.is-active{
+      opacity:1;
+      pointer-events:auto;
+      position:relative;
+    }
+
+    .ig-slideshow blockquote{
+      margin:0 auto;
+      max-width:540px;
+    }
+
+    .ig-dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:var(--space-3);
+    }
+
+    .ig-dot{
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      border:0;
+      background:rgba(180, 110, 145, .35);
+      cursor:pointer;
+    }
+
+    .ig-dot.is-active{
+      background:var(--rose-dark);
+    }
+
     .cta-row{
       display:flex;
       gap:var(--space-3);
@@ -285,6 +338,12 @@
         grid-column: span 2;
       }
     }
+
+    @media (max-width: 680px){
+      .ig-slides{
+        min-height:460px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -305,6 +364,44 @@
           Handcrafted dessert moments for celebrations, parties, and just-because days. Soft pinks,
           golden sparkle, and a little magic in every bite.
         </p>
+        <div class="ig-slideshow" aria-label="Sweet Natalia Instagram highlights">
+          <div class="ig-slides">
+            <div class="ig-slide is-active">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8BJppWtzVD/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C6xK9q6Ntcy/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DGKTxaYAlAc/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CvxZfY6gpzQ/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CgisFXjMsDn/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CgirliUMB9W/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ce_v7Z8gClv/" data-instgrm-version="14"></blockquote>
+            </div>
+            <div class="ig-slide">
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ceh3wm9t3o9/" data-instgrm-version="14"></blockquote>
+            </div>
+          </div>
+          <div class="ig-dots" role="tablist" aria-label="Instagram slideshow">
+            <button class="ig-dot is-active" type="button" aria-label="Slide 1"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 2"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 3"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 4"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 5"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 6"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 7"></button>
+            <button class="ig-dot" type="button" aria-label="Slide 8"></button>
+          </div>
+        </div>
         <div class="cta-row">
           <a class="btn" href="/go">Make a Payment</a>
           <a class="btn secondary" href="/orders">Custom Orders</a>
@@ -381,6 +478,44 @@
       Sweet Natalia - Handcrafted desserts for sweet celebrations
     </footer>
   </div>
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    (() => {
+      const slides = Array.from(document.querySelectorAll(".ig-slide"));
+      const dots = Array.from(document.querySelectorAll(".ig-dot"));
+      if (!slides.length) return;
+
+      let current = 0;
+      let timerId = null;
+
+      const showSlide = (next) => {
+        slides[current].classList.remove("is-active");
+        dots[current]?.classList.remove("is-active");
+        current = next;
+        slides[current].classList.add("is-active");
+        dots[current]?.classList.add("is-active");
+        if (window.instgrm && window.instgrm.Embeds && window.instgrm.Embeds.process) {
+          window.instgrm.Embeds.process();
+        }
+      };
+
+      const startTimer = () => {
+        timerId = setInterval(() => {
+          showSlide((current + 1) % slides.length);
+        }, 6000);
+      };
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          if (timerId) clearInterval(timerId);
+          showSlide(index);
+          startTimer();
+        });
+      });
+
+      startTimer();
+    })();
+  </script>
 </body>
 </html>
 
