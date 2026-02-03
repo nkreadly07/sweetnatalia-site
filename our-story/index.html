@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sweet Natalia | Custom Orders</title>
-  <meta name="description" content="Custom orders for Sweet Natalia desserts." />
+  <title>Sweet Natalia | Our Story</title>
+  <meta name="description" content="Our story at Sweet Natalia." />
   <style>
     :root{
       --bg-1:#fff6fb;
@@ -163,31 +163,6 @@
       box-shadow:var(--shadow);
       padding:var(--space-6);
     }
-    .brand-row{
-      display:flex;
-      align-items:center;
-      gap:var(--space-3);
-      flex-wrap:wrap;
-      margin-bottom:var(--space-3);
-    }
-    .logo{
-      width:64px;
-      height:64px;
-      border-radius:20px;
-      background: linear-gradient(135deg, #f4b7cf, #d48db0);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow: 0 12px 26px rgba(180, 90, 130, .25);
-      border:1px solid rgba(255,255,255,.7);
-      flex:0 0 auto;
-    }
-    .logo img{
-      width:48px;
-      height:48px;
-      object-fit:contain;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
-    }
     h1{
       margin:0 0 var(--space-2);
       font-size:34px;
@@ -201,72 +176,17 @@
       line-height:1.6;
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
     }
-    .grid{
-      display:grid;
-      gap:var(--space-4);
-      margin-top:var(--space-5);
-    }
     .card{
+      margin-top:var(--space-4);
       background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow-soft);
       padding:var(--space-5);
-    }
-    .card h2{
-      margin:0 0 var(--space-2);
-      font-size:20px;
-      color:var(--rose-dark);
-    }
-    .list{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
       color:var(--muted);
+      line-height:1.6;
       font-size:14px;
-    }
-    .list li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .dot{
-      width:8px;
-      height:8px;
-      margin-top:6px;
-      border-radius:999px;
-      background:linear-gradient(135deg, var(--gold-light), var(--gold));
-      flex:0 0 auto;
-    }
-    .cta-row{
-      display:flex;
-      gap:var(--space-3);
-      flex-wrap:wrap;
-      margin-top:var(--space-4);
-      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
-      font-size:14px;
-      letter-spacing:.02em;
-      color:#fff;
-      background:linear-gradient(135deg, var(--rose), var(--rose-dark));
-      box-shadow:var(--shadow-soft);
-    }
-    .btn.secondary{
-      color:var(--rose-dark);
-      background:#fff;
-      border:1px solid rgba(193, 110, 145, .35);
-      box-shadow:none;
     }
     .footer{
       margin-top:var(--space-6);
@@ -274,14 +194,6 @@
       color:var(--muted);
       font-size:12px;
       font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-    }
-    @media (min-width: 820px){
-      .grid{
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .card.span-2{
-        grid-column: span 2;
-      }
     }
   </style>
 </head>
@@ -334,52 +246,15 @@
   </nav>
   <div class="wrap">
     <section class="hero">
-      <div class="brand-row">
-        <div class="logo" aria-hidden="true">
-          <img src="../images/sweet-logo.jpg" alt="" loading="lazy" />
-        </div>
-        <h1>Custom Orders</h1>
-      </div>
+      <h1>Our Story</h1>
       <p class="lead">
-        Share your vision and we will craft a dessert spread that fits your event. This page is for
-        custom requests, quotes, and the details we need to get started.
+        Sweet Natalia began with a love of handmade desserts and the joy of celebrating life's
+        sweetest moments. Every treat is crafted with care, color, and a little sparkle to make
+        your event feel extra special.
       </p>
-      <div class="cta-row">
-        <a class="btn" href="/go">Go to Payment Hub</a>
-        <a class="btn secondary" href="/contact">Contact Us</a>
-      </div>
-    </section>
-
-    <section class="grid">
       <div class="card">
-        <h2>What to Send Us</h2>
-        <ul class="list">
-          <li><span class="dot"></span>Event date, time, and location</li>
-          <li><span class="dot"></span>Guest count and serving size</li>
-          <li><span class="dot"></span>Theme colors or inspiration photos</li>
-          <li><span class="dot"></span>Preferred treats and flavors</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>Popular Requests</h2>
-        <ul class="list">
-          <li><span class="dot"></span>Chocolate covered strawberries</li>
-          <li><span class="dot"></span>Cake pops and dessert cups</li>
-          <li><span class="dot"></span>Waffle on a stick bundles</li>
-          <li><span class="dot"></span>Custom color matching</li>
-        </ul>
-      </div>
-
-      <div class="card span-2">
-        <h2>Ready to Confirm?</h2>
-        <p class="lead">
-          Once you receive a quote, use the payment hub to place your deposit or full payment.
-        </p>
-        <div class="cta-row">
-          <a class="btn" href="/go">Make a Payment</a>
-          <a class="btn secondary" href="/">Back to Home</a>
-        </div>
+        From cake pops to dessert cups, each order is personalized with your theme, colors, and
+        details. Thank you for letting us be part of your celebrations.
       </div>
     </section>
 
