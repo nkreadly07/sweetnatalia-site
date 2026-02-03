@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sweet Natalia | Pay</title>
-  <meta name="description" content="Pay Sweet Natalia via Venmo, Cash App, or Zelle." />
+  <meta name="description" content="Pay Sweet Natalia via Venmo, Zelle, or Instagram." />
 
   <script>
     // ====== EDIT THESE CONSTANTS ======
     const VENMO_USER = "Danya-Issawi-1";
-    const CASHAPP_USER = "REPLACE_CASHAPP_USER";
     const ZELLE_EMAIL = "Danya.issawi@gmail.com";
     const IG_USER = "sweetnatalia613";
     const BRAND_NAME = "Sweet Natalia";
@@ -37,7 +36,6 @@
       --radius-btn:18px;
 
       --venmo:#3d95ce;
-      --cash:#00d632;
       --zelle:#6d1ed4;
       --ig:#0b0b0f;
 
@@ -221,6 +219,13 @@
       gap:var(--space-3);
     }
 
+    .payLogo{
+      width:28px;
+      height:28px;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
+    }
+
     .chip{
       display:inline-flex;
       align-items:center;
@@ -242,7 +247,6 @@
     }
 
     .venmo{ --btn-bg: linear-gradient(135deg, #2f80ed, var(--venmo)); }
-    .cash { --btn-bg: linear-gradient(135deg, #0aa84a, var(--cash)); }
     .zelle{ --btn-bg: linear-gradient(135deg, #4c1d95, var(--zelle)); }
     .ig   { --btn-bg: linear-gradient(135deg, #111827, var(--ig)); }
 
@@ -316,7 +320,7 @@
     <div class="card">
       <div class="header">
         <div class="logo" aria-hidden="true">
-          <img src="../images/sweet-natalia-logo.png" alt="" loading="lazy" />
+          <img src="../images/sweet-logo.jpg" alt="" loading="lazy" />
         </div>
         <div>
           <h1 data-brand>Sweet Natalia</h1>
@@ -327,34 +331,20 @@
       <div class="grid">
         <a class="btn venmo" data-link="venmo" href="#" rel="noopener" target="_blank">
           <span class="left">
-            <span class="chip">VENMO</span>
-            <span>Pay with Venmo</span>
+            <img class="payLogo" src="../images/Venmo_App_Icon.webp" alt="Venmo" loading="lazy" />
           </span>
-          <span class="arrow">&gt;</span>
-        </a>
-
-        <a class="btn cash" data-link="cash" href="#" rel="noopener">
-          <span class="left">
-            <span class="chip">CASH APP</span>
-            <span>Pay with Cash App</span>
-          </span>
-          <span class="arrow">&gt;</span>
         </a>
 
         <a class="btn zelle" data-link="zelle" href="#" rel="noopener" target="_blank">
           <span class="left">
-            <span class="chip">ZELLE</span>
-            <span>Pay with Zelle</span>
+            <img class="payLogo" src="../images/Zelle_icon.svg" alt="Zelle" loading="lazy" />
           </span>
-          <span class="arrow">&gt;</span>
         </a>
 
         <a class="btn ig" data-link="ig" href="#" rel="noopener" target="_blank">
           <span class="left">
-            <span class="chip">INSTAGRAM</span>
-            <span>Instagram</span>
+            <img class="payLogo" src="../images/Instagram_Glyph_Gradient.png" alt="Instagram" loading="lazy" />
           </span>
-          <span class="arrow">&gt;</span>
         </a>
       </div>
 
@@ -376,7 +366,6 @@
   <script>
     const links = {
       venmo: `https://venmo.com/u/${VENMO_USER}`,
-      cash: `https://cash.app/$${CASHAPP_USER}`,
       zelle: "https://enroll.zellepay.com/qr-codes?data=eyJ0b2tlbiI6IjkxMzI1NzcyOTIiLCJuYW1lIjoiRGFueWEiLCJhY3Rpb24iOiJQQVlNRU5UIn0=",
       ig: `https://instagram.com/${IG_USER}`
     };
@@ -386,7 +375,7 @@
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
-        `Pay ${BRAND_NAME} via Venmo, Cash App, or Zelle.`
+        `Pay ${BRAND_NAME} via Venmo, Zelle, or Instagram.`
       );
     }
 
