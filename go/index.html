@@ -8,10 +8,10 @@
 
   <script>
     // ====== EDIT THESE CONSTANTS ======
-    const VENMO_USER = "REPLACE_VENMO_USER";
+    const VENMO_USER = "Danya-Issawi-1";
     const CASHAPP_USER = "REPLACE_CASHAPP_USER";
-    const ZELLE_EMAIL = "REPLACE_ZELLE_EMAIL";
-    const IG_USER = "REPLACE_IG_USER";
+    const ZELLE_EMAIL = "Danya.issawi@gmail.com";
+    const IG_USER = "sweetnatalia613";
     const BRAND_NAME = "Sweet Natalia";
     const TAGLINE = "Be sweet to yourself.";
     // ====== END CONSTANTS ======
@@ -163,9 +163,10 @@
       flex:0 0 auto;
     }
 
-    .logo svg{
-      width:34px;
-      height:34px;
+    .logo img{
+      width:44px;
+      height:44px;
+      object-fit:contain;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,.15));
     }
 
@@ -315,14 +316,7 @@
     <div class="card">
       <div class="header">
         <div class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M8.5 8.2c0-1.9 1.55-3.45 3.45-3.45s3.45 1.55 3.45 3.45c0 1.2-.62 2.26-1.56 2.87l.65 3.56H9.4l.66-3.56A3.44 3.44 0 0 1 8.5 8.2Z" stroke="white" stroke-width="1.6"/>
-            <path d="M12 14.4v5.6" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M10.4 18.2h3.2" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-            <circle cx="10.2" cy="7.2" r=".6" fill="white"/>
-            <circle cx="12" cy="6.6" r=".7" fill="white"/>
-            <circle cx="13.8" cy="7.5" r=".6" fill="white"/>
-          </svg>
+          <img src="../images/sweet-natalia-logo.png" alt="" loading="lazy" />
         </div>
         <div>
           <h1 data-brand>Sweet Natalia</h1>
@@ -331,7 +325,7 @@
       </div>
 
       <div class="grid">
-        <a class="btn venmo" data-link="venmo" href="#" rel="noopener">
+        <a class="btn venmo" data-link="venmo" href="#" rel="noopener" target="_blank">
           <span class="left">
             <span class="chip">VENMO</span>
             <span>Pay with Venmo</span>
@@ -347,7 +341,7 @@
           <span class="arrow">&gt;</span>
         </a>
 
-        <a class="btn zelle" data-link="zelle" href="#" rel="noopener">
+        <a class="btn zelle" data-link="zelle" href="#" rel="noopener" target="_blank">
           <span class="left">
             <span class="chip">ZELLE</span>
             <span>Pay with Zelle</span>
@@ -355,7 +349,7 @@
           <span class="arrow">&gt;</span>
         </a>
 
-        <a class="btn ig" data-link="ig" href="#" rel="noopener">
+        <a class="btn ig" data-link="ig" href="#" rel="noopener" target="_blank">
           <span class="left">
             <span class="chip">INSTAGRAM</span>
             <span>Instagram</span>
@@ -366,8 +360,9 @@
 
       <div class="section">
         <div class="copyRow">
-          <span class="zelleChip" id="zelleChip">Zelle: REPLACE_ZELLE_EMAIL</span>
-          <button class="copyBtn" id="copyBtn" type="button">Copy</button>
+          <span class="zelleChip" id="zelleChip">Zelle: Danya.issawi@gmail.com</span>
+          <button class="copyBtn" id="copyBtn" data-copy="email" type="button">Copy</button>
+          <button class="copyBtn" id="copyPhoneBtn" data-copy="phone" type="button">Copy phone</button>
         </div>
         <p class="note">Tip: put your name or "cake pops" in the payment note.</p>
       </div>
@@ -382,7 +377,7 @@
     const links = {
       venmo: `https://venmo.com/u/${VENMO_USER}`,
       cash: `https://cash.app/$${CASHAPP_USER}`,
-      zelle: `mailto:${ZELLE_EMAIL}`,
+      zelle: "https://enroll.zellepay.com/qr-codes?data=eyJ0b2tlbiI6IjkxMzI1NzcyOTIiLCJuYW1lIjoiRGFueWEiLCJhY3Rpb24iOiJQQVlNRU5UIn0=",
       ig: `https://instagram.com/${IG_USER}`
     };
 
@@ -410,16 +405,26 @@
       }
     });
 
-    const btn = document.getElementById("copyBtn");
-    btn?.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(ZELLE_EMAIL);
-        btn.textContent = "Copied!";
-        setTimeout(() => btn.textContent = "Copy", 1200);
-      } catch {
-        btn.textContent = "Copy failed";
-        setTimeout(() => btn.textContent = "Copy", 1200);
-      }
+    const copyMap = {
+      email: ZELLE_EMAIL,
+      phone: "913-257-7292"
+    };
+
+    document.querySelectorAll(".copyBtn[data-copy]").forEach((button) => {
+      const key = button.getAttribute("data-copy");
+      const value = key ? copyMap[key] : "";
+      const original = button.textContent || "Copy";
+      button.addEventListener("click", async () => {
+        if (!value) return;
+        try {
+          await navigator.clipboard.writeText(value);
+          button.textContent = "Copied";
+          setTimeout(() => { button.textContent = original; }, 1200);
+        } catch {
+          button.textContent = "Copy failed";
+          setTimeout(() => { button.textContent = original; }, 1200);
+        }
+      });
     });
   </script>
 </body>
